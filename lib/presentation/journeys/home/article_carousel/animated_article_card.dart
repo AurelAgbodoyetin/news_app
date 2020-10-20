@@ -9,6 +9,8 @@ class AnimatedArticleCardWidget extends StatelessWidget {
   final String title;
   final String publishedAt;
   final Source source;
+  final String content;
+  final String url;
 
   const AnimatedArticleCardWidget({
     Key key,
@@ -18,6 +20,8 @@ class AnimatedArticleCardWidget extends StatelessWidget {
     @required this.title,
     @required this.publishedAt,
     @required this.source,
+    @required this.content,
+    @required this.url,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -62,6 +66,8 @@ class AnimatedArticleCardWidget extends StatelessWidget {
         title: title,
         publishedAt: publishedAt,
         source: source,
+        content: content,
+        url: url,
       ),
     );
   }

@@ -41,4 +41,24 @@ class ArticleRepositoryImpl extends ArticleRepository {
       return Left(AppError("Something went wrong fetching search results"));
     }
   }
+
+  @override
+  Future<Either<AppError, List<ArticleEntity>>> getSports() async {
+    try {
+      final List<ArticleModel> articles = await remoteDataSource.getSports();
+      return Right(articles);
+    } on Exception {
+      return Left(AppError("Something went wrong fetching search results"));
+    }
+  }
+
+  @override
+  Future<Either<AppError, List<ArticleEntity>>> getHealth() async {
+    try {
+      final List<ArticleModel> articles = await remoteDataSource.getHealth();
+      return Right(articles);
+    } on Exception {
+      return Left(AppError("Something went wrong fetching search results"));
+    }
+  }
 }

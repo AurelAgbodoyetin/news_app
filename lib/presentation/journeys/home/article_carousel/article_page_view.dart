@@ -50,6 +50,8 @@ class _ArticlePageViewState extends State<ArticlePageView> {
             title: article.title,
             source: article.source,
             publishedAt: article.publishedAt,
+            url: article.url,
+            content: article.content,
           );
         },
         pageSnapping: true,

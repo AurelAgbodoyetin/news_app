@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:news_app/app_constants.dart';
 import 'package:news_app/data/models/source_model.dart';
+import 'package:news_app/presentation/journeys/home/article_details/article_details_page.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class ArticleCardWidget extends StatelessWidget {
@@ -12,6 +13,8 @@ class ArticleCardWidget extends StatelessWidget {
   final String title;
   final String publishedAt;
   final Source source;
+  final String content;
+  final String url;
 
   const ArticleCardWidget({
     Key key,
@@ -20,6 +23,8 @@ class ArticleCardWidget extends StatelessWidget {
     @required this.title,
     @required this.publishedAt,
     @required this.source,
+    @required this.content,
+    @required this.url,
   }) : super(key: key);
 
   @override
@@ -29,7 +34,21 @@ class ArticleCardWidget extends StatelessWidget {
         depth: 10.0,
       ),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ArticleDetails(
+                title: title,
+                content: content,
+                sourceName: source.name,
+                url: url,
+                imgUrl: posterPath,
+                publishedAt: publishedAt,
+              ),
+            ),
+          );
+        },
         child: Container(
           height: 200.0,
           width: 250.0,
