@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:news_app/presentation/blocs/article_carousel/article_carousel_bloc.dart';
 import 'package:news_app/presentation/blocs/article_tabbed/article_tabbed_bloc.dart';
+import 'package:news_app/presentation/journeys/drawer/navigation_drawer.dart';
 import 'package:news_app/presentation/journeys/home/article_carousel/article_carousel_widget.dart';
 import 'package:news_app/di/get_it.dart' as getItInstance;
 import 'package:news_app/presentation/journeys/home/article_tabbed/article_tabbed_widget.dart';
@@ -39,6 +40,7 @@ class _HomeState extends State<Home> {
         BlocProvider(create: (context) => articleTabbedBloc),
       ],
       child: Scaffold(
+        drawer: const NavigationDrawer(),
         body: BlocBuilder<ArticleCarouselBloc, ArticleCarouselState>(
           cubit: carouselBloc,
           builder: (context, state) {

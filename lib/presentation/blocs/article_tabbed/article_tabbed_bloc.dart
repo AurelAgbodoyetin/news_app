@@ -45,7 +45,9 @@ class ArticleTabbedBloc extends Bloc<ArticleTabbedEvent, ArticleTabbedState> {
       yield articlesEither.fold(
         (l) => ArticleTabLoadErrorState(currentTabIndex: event.currentTabIndex),
         (articles) => ArticleTabChangedState(
-            currentTabIndex: event.currentTabIndex, articles: articles),
+          currentTabIndex: event.currentTabIndex,
+          articles: articles,
+        ),
       );
     }
   }

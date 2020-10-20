@@ -39,6 +39,7 @@ dependencies:
   pedantic: ^1.9.2
   timeago: ^2.0.27
   url_launcher: ^5.7.5
+  wiredash: ^0.3.0
 
 dev_dependencies:
   flutter_test:

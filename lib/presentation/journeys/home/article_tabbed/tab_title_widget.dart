@@ -21,14 +21,19 @@ class TabTitleWidget extends StatelessWidget {
           border: Border(
             bottom: BorderSide(
               color: isSelected ? AppColors.darkThemeColor : Colors.transparent,
-              width: 2.0,
+              width: 3.0,
             ),
           ),
         ),
-        padding: EdgeInsets.symmetric(horizontal: 4.0),
+        padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 5.0),
         child: Text(
-          title,
+          title.toUpperCase(),
           overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+            fontSize: isSelected ? 20.0 : 15.0,
+            letterSpacing: isSelected ? 1.8 : 0.4,
+          ),
         ),
       ),
     );

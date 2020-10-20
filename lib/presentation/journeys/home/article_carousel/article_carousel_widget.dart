@@ -18,34 +18,47 @@ class ArticleCarouselWidget extends StatelessWidget {
       child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ArticleAppBar(),
               SizedBox(
-                height: 20.0,
+                height: 5.0,
               ),
-              Text("Hot News"),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Text(
+                  "Hot News".toUpperCase(),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0,
+                    letterSpacing: 1.0,
+                  ),
+                ),
+              ),
               SizedBox(
-                height: 20.0,
+                height: 5.0,
               ),
               ArticlePageView(
                 articles: articles,
                 initialPage: defaultIndex,
               ),
               SizedBox(
-                height: 20.0,
+                height: 10.0,
               ),
-
-              /*SliverList(
-            delegate: SliverChildListDelegate([
-              Text("Headlines"),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Text(
+                  "Headlines".toUpperCase(),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0,
+                    letterSpacing: 1.0,
+                  ),
+                ),
+              ),
               SizedBox(
-                height: 20.0,
+                height: 5.0,
               ),
-            ]),
-          ),
-          HeadlinesWidget(
-            articles: articles,
-          ),*/
             ],
           )),
     );
