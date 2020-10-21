@@ -2,7 +2,9 @@ part of 'search_bloc.dart';
 
 abstract class SearchState extends Equatable {
   final String currentTextFieldText;
-  const SearchState({this.currentTextFieldText});
+  final List<ArticleEntity> articles;
+
+  const SearchState({this.articles, this.currentTextFieldText});
 
   @override
   List<Object> get props => [];
@@ -11,11 +13,8 @@ abstract class SearchState extends Equatable {
 class SerachInitial extends SearchState {}
 
 class SearchTextFieldChangedState extends SearchState {
-  final List<ArticleEntity> articles;
-
-  const SearchTextFieldChangedState(
-      {String currentTextFieldText, this.articles})
-      : super(currentTextFieldText: currentTextFieldText);
+  const SearchTextFieldChangedState({String currentTextFieldText, articles})
+      : super(currentTextFieldText: currentTextFieldText, articles: articles);
   @override
   List<Object> get props => [currentTextFieldText, articles];
 }

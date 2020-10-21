@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:news_app/data/data_sources/article_remote_data_source.dart';
 import 'package:news_app/data/models/articles_model.dart';
 import 'package:news_app/domain/entities/app_error.dart';
@@ -32,10 +33,10 @@ class ArticleRepositoryImpl extends ArticleRepository {
 
   @override
   Future<Either<AppError, List<ArticleEntity>>> getSearchResult(
-      String keyword) async {
+      {@required String keyword}) async {
     try {
       final List<ArticleModel> articles =
-          await remoteDataSource.getSearchResult(keyword);
+          await remoteDataSource.getSearchResult(keyword: keyword);
       return Right(articles);
     } on Exception {
       return Left(AppError("Something went wrong fetching search results"));

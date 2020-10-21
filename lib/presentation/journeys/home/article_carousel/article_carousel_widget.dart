@@ -6,9 +6,13 @@ import 'package:news_app/presentation/widgets/article_appbar.dart';
 class ArticleCarouselWidget extends StatelessWidget {
   final List<ArticleEntity> articles;
   final int defaultIndex;
+  final BuildContext providerContext;
 
   const ArticleCarouselWidget(
-      {Key key, @required this.articles, @required this.defaultIndex})
+      {Key key,
+      @required this.articles,
+      @required this.defaultIndex,
+      @required this.providerContext})
       : assert(defaultIndex >= 0, 'defaultIndex can not be less than 0'),
         super(key: key);
 
@@ -20,7 +24,9 @@ class ArticleCarouselWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ArticleAppBar(),
+              ArticleAppBar(
+                providerContext: providerContext,
+              ),
               SizedBox(
                 height: 5.0,
               ),

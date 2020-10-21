@@ -42,7 +42,6 @@ Future init() async {
     ),
   );
   getItInstance.registerFactory(
-    () =>
-        SearchBloc(currentTextFieldText: "", getSearchResult: getItInstance()),
+    () => SearchBloc(getSearchResult: getItInstance()),
   );
 }

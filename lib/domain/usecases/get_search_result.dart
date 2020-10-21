@@ -12,6 +12,6 @@ class GetSearchResult extends UseCase<List<ArticleEntity>, SearchParams> {
   GetSearchResult(this.repository, this.keyword);
   Future<Either<AppError, List<ArticleEntity>>> call(
       SearchParams searchParams) async {
-    return await repository.getSearchResult(searchParams.keyword);
+    return await repository.getSearchResult(keyword: searchParams.keyword);
   }
 }

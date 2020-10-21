@@ -2,8 +2,12 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:news_app/app_constants.dart';
+import 'package:news_app/presentation/blocs/search/search_bloc.dart';
 
 class SearchBar extends StatefulWidget {
+  final SearchBloc searchBloc;
+
+  const SearchBar({Key key, @required this.searchBloc}) : super(key: key);
   @override
   _SearchBarState createState() => _SearchBarState();
 }
@@ -29,6 +33,7 @@ class _SearchBarState extends State<SearchBar> {
     shape: NeumorphicShape.convex,
     depth: 2.0,
   );
+
   @override
   void initState() {
     super.initState();
@@ -54,6 +59,13 @@ class _SearchBarState extends State<SearchBar> {
       padding: EdgeInsets.symmetric(horizontal: 10.0),
       style: _currentStyle,
       child: TextField(
+        onChanged: (text) {
+          widget.searchBloc.add(
+            SearchTextFieldChangedEvent(
+              currentTextFieldText: text,
+            ),
+          );
+        },
         focusNode: _textFieldFocus,
         controller: _textFieldController,
         cursorHeight: 25.0,

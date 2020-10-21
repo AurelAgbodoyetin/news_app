@@ -61,7 +61,7 @@ class ArticleCardWidget extends StatelessWidget {
               Container(
                 height: 100.0,
                 width: 250.0,
-                child: (posterPath == null)
+                child: (posterPath == null || posterPath == "")
                     ? Image(
                         image: AssetImage(
                           "assets/pngs/default.png",

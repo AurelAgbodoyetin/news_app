@@ -14,10 +14,7 @@ part 'search_state.dart';
 
 class SearchBloc extends Bloc<SearchEvent, SearchState> {
   final GetSearchResult getSearchResult;
-  final String currentTextFieldText;
-  SearchBloc(
-      {@required this.currentTextFieldText, @required this.getSearchResult})
-      : super(SerachInitial());
+  SearchBloc({@required this.getSearchResult}) : super(SerachInitial());
 
   @override
   Stream<SearchState> mapEventToState(
@@ -26,14 +23,14 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     if (event is SearchTextFieldChangedEvent) {
       Either<AppError, List<ArticleEntity>> articlesEither;
       articlesEither = await getSearchResult(
-        SearchParams(keyword: currentTextFieldText),
+        SearchParams(keyword: event.currentTextFieldText),
       );
       yield articlesEither.fold(
         (l) => SearchResultsLoadErrorState(
-            currentTextFieldText: currentTextFieldText),
+            currentTextFieldText: event.currentTextFieldText),
         (articles) => SearchTextFieldChangedState(
           articles: articles,
-          currentTextFieldText: currentTextFieldText,
+          currentTextFieldText: event.currentTextFieldText,
         ),
       );
     }

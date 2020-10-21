@@ -55,7 +55,7 @@ class ArticleTabCard extends StatelessWidget {
           width: _width * 0.4,
           child: Column(
             children: [
-              (posterPath == null)
+              (posterPath == null || posterPath == "")
                   ? Image(
                       height: 80.0,
                       //width: 20.0,
