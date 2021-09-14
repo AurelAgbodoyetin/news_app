@@ -19,7 +19,7 @@ samples, guidance on mobile development, and a full API reference.
 <p align="center">
   <img width = "250" height = "515" src="https://user-images.githubusercontent.com/54779813/133302159-4fdcf1e0-66ed-4276-bbd6-a76e419271fc.png" />
 </p>
-<p align="center" stye=“margin-top: 20px;” >
+<p align="center" stye="margin-top: 20px;" >
   <img width = "250" height = "515" src="https://user-images.githubusercontent.com/54779813/133302169-4b08d5ef-b11b-4ea0-a922-055b1552dc37.png" />
 </p>
 <p align="center">
